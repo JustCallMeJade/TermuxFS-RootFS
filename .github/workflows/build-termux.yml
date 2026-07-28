@@ -44,11 +44,12 @@ jobs:
       - name: setup
         run: |
           /entrypoint.sh pkg install -y ninja python git
-          /entrypoint.sh pip install meson
+          /entrypoint.sh pip install meson mako pyyaml setuptools
           /entrypoint.sh pkg install -y tur-repo x11-repo
           /entrypoint.sh pkg install -y clang pkg-config alsa-lib pulseaudio fontconfig freetype gnutls mesa libx11 libxcursor libxfixes libxi libxrandr libxrender libxext vulkan-loader gstreamer gst-plugins-base sdl2 gst-plugins-good xorgproto
           /entrypoint.sh pkg install -y fontconfig freetype krb5 libc++ libgmp libgnutls libxcb libxcomposite libxcursor libxfixes libxrender opengl pulseaudio sdl2 vulkan-loader xorg-xrandr libandroid-shmem libandroid-spawn ffmpeg
-          /entrypoint.sh pkg install -y libltdl libsndfile libsoxr speexdsp glib dbus alsa-lib libandroid-* llvm-mingw-w64 x11-* *wayland lib*
+          /entrypoint.sh pkg install -y libltdl libsndfile libsoxr speexdsp glib dbus alsa-lib libandroid-* llvm-mingw-w64 x11-* *wayland
+          /entrypoint.sh pkg install -y perl git wget xz-utils autoconf automake flex bison pkg-config make libx11 libxext libxi libxrandr libxcursor libxcomposite libxdamage libxfixes libxrender libxinerama libxxf86vm libglvnd mesa sdl2 freetype fontconfig libpcap dbus openssl pulseaudio libjpeg-turbo libpng libtiff libxml2 vulkan-loader vulkan-tools gettext libunwind gstreamer gst-plugins-base mpg123 openal-soft wayland libxkbcommon krb5
       - name: Compressing Termux files
         run: tar cf termuxfs-x86_64.tar /data/data/com.termux/files/usr
       - uses: actions/upload-artifact@v4.6.0
@@ -98,11 +99,12 @@ jobs:
       - name: setup
         run: |
           /entrypoint.sh pkg install -y ninja python git
-          /entrypoint.sh pip install meson
+          /entrypoint.sh pip install meson mako pyyaml setuptools 
           /entrypoint.sh pkg install -y tur-repo x11-repo
           /entrypoint.sh pkg install -y clang pkg-config alsa-lib pulseaudio fontconfig freetype gnutls mesa libx11 libxcursor libxfixes libxi libxrandr libxrender libxext vulkan-loader gstreamer gst-plugins-base sdl2 gst-plugins-good xorgproto
           /entrypoint.sh pkg install -y fontconfig freetype krb5 libc++ libgmp libgnutls libxcb libxcomposite libxcursor libxfixes libxrender opengl pulseaudio sdl2 vulkan-loader xorg-xrandr libandroid-shmem libandroid-spawn ffmpeg
-          /entrypoint.sh pkg install -y libltdl libsndfile libsoxr speexdsp glib dbus alsa-lib libandroid-* x11-* *wayland lib*
+          /entrypoint.sh pkg install -y libltdl libsndfile libsoxr speexdsp glib dbus alsa-lib libandroid-* x11-* *wayland
+          /entrypoint.sh pkg install -y perl git wget xz-utils autoconf automake flex bison pkg-config make libx11 libxext libxi libxrandr libxcursor libxcomposite libxdamage libxfixes libxrender libxinerama libxxf86vm libglvnd mesa sdl2 freetype fontconfig libpcap dbus openssl pulseaudio libjpeg-turbo libpng libtiff libxml2 vulkan-loader vulkan-tools gettext libunwind gstreamer gst-plugins-base mpg123 openal-soft wayland libxkbcommon krb5
       - name: Compressing Termux files
         run: tar cf termuxfs-aarch64.tar /data/data/com.termux/files/usr
       - uses: actions/upload-artifact@v4.6.0
